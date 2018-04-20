@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+@import "mysite.css";
+
+#site-introduction				{ padding:10px;	width:540px; font-family: 돋움, Dotum, Helvetica, sans-serif;}
+#site-introduction img#profile	{ display:block; float:left ; font-family: 돋움, Dotum, Helvetica, sans-serif;}
+#site-introduction h3		   	{ float:left; width:320px; margin:50px 0 0 20px; font-family: 돋움, Dotum, Helvetica, sans-serif;}
+#site-introduction p			{ padding:10px; clear:both; font-size:1.1em; padding:20px; line-height:1.5em; font-family: 돋움, Dotum, Helvetica, sans-serif;}

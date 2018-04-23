@@ -24,7 +24,8 @@
 						
 						<label>비밀번호</label>
 						<input type="password" name="password">
-						<td><input type="text" name="no" value="<%=request.getParameter("no")%>"></td>
+						<%-- <td><input type="text" name="no" value="<%=request.getParameter("no")%>"></td> --%>
+						<td><input type="text" name="no" value="${param.no}"></td>
 						<input type="submit" value="확인">
 					</form>
 					<a href="/mysite/gb">방명록 리스트</a>

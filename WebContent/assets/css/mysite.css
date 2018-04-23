@@ -6,7 +6,7 @@ body			{ font:0.75em "맑은 고딕", 돋움, 굴림; text-align:center }
 ul, ol			{ list-style-type: none }
 
 /* layout */
-div#container	{ text-align:left; width:700px; margin:0 auto; background-color:#0080c0 }
+div#container	{ text-align:left; width:700px; margin:0 auto; background-color:#c0c0c0 }
 div#content		{ float:right; width:580px; background-color:#fff; font-family: 돋움, Dotum, Helvetica, sans-serif;}
 div#navigation	{ float:left; width:120px; font-family: 돋움, Dotum, Helvetica, sans-serif}
 div#footer		{ clear:both; width:100% }
@@ -20,7 +20,7 @@ div#header	li a 			{ color:white; font-weight:bold; margin-left:10px; text-decor
 
 /* navigation */
 div#navigation ul			{ width:118px; margin-top:1px ; font-family: 돋움, Dotum, Helvetica, sans-serif;}
-div#navigation li			{ width:118px; background-color:#0080c0; border:1px solid #DADADA; margin-top:-1px }
+div#navigation li			{ width:118px; background-color:#c0c0c0; border:1px solid #DADADA; margin-top:-1px }
 div#navigation li a			{ display:block; color:white; width:98px; font-weight:bold; padding:5px 10px; font-size:1.1em }
 div#navigation li.selected	{ background:#E0E0E0 }
 div#navigation li a:link	{ color:white; text-decoration:none; }

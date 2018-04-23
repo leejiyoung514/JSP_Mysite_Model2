@@ -19,7 +19,7 @@ public class UserDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
-			con = DriverManager.getConnection(url, "webdb", "webdb");
+			con = DriverManager.getConnection(url, "webdb", "1234");
 			String sql = "INSERT INTO users VALUES(SEQ_USER_NO.NEXTVAL,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, uservo.getName());
@@ -60,7 +60,7 @@ public class UserDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
-			con = DriverManager.getConnection(url, "webdb", "webdb");
+			con = DriverManager.getConnection(url, "webdb", "1234");
 			String sql = "update users set name=?, email=?, password=?, gender=? where no=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, uservo.getName());
@@ -102,7 +102,7 @@ public class UserDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
-			con = DriverManager.getConnection(url, "webdb", "webdb");
+			con = DriverManager.getConnection(url, "webdb", "1234");
 			
 			String sql="select no, name from users where email=? and password=?";
 		    pstmt=con.prepareStatement(sql);
@@ -151,7 +151,7 @@ public class UserDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
-			con = DriverManager.getConnection(url, "webdb", "webdb");
+			con = DriverManager.getConnection(url, "webdb", "1234");
 			
 			String sql="select name, email, password, gender from users where no=?";
 		    pstmt=con.prepareStatement(sql);

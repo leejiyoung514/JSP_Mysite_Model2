@@ -8,7 +8,6 @@ public class BoardVO {
 	private int hit; //조회수
 	private String reg_date; //글을쓴날자
     private int user_no; //사용자번호
-	
     private String user_name; //글쓴사람
 	
 
@@ -26,15 +25,10 @@ public class BoardVO {
 	
 	public BoardVO(String title, String content, int user_no) {
 		super();
-		this.no = no;
 		this.title = title;
 		this.content = content;
-		this.hit = hit;
-		this.reg_date = reg_date;
 		this.user_no = user_no;
 	}
-    
-	
 	   
 	public BoardVO(int no, String title, String content) {
 		this.no = no;
@@ -59,7 +53,6 @@ public class BoardVO {
 		this.user_no = user_no;
 		this.user_name = user_name;
 	}
-
 
 	public int getNo() {
 		return no;

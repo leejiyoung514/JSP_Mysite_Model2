@@ -43,3 +43,23 @@ order by no desc;
 SELECT title, content FROM board where no=1;
 
 SELECT no, title, content, user_no FROM board where no=1;
+
+SELECT B.rnum, B.no, B.title, B.name, B.hit, B.reg_date, B.user_no
+FROM
+   (SELECT rownum AS rnum, A.no, A.title, A.name, A.hit, A.reg_date, A.user_no
+    FROM(SELECT b.no,
+                b.title,
+                u.name,
+                b.hit,
+                b.reg_date,
+                b.user_no
+         FROM board b, users u
+         WHERE b.user_no = u.no
+         ORDER BY NO DESC) A
+    WHERE rownum <=5)B
+WHERE B.rnum >=1;
+
+
+
+
+

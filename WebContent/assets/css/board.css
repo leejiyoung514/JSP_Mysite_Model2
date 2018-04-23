@@ -36,7 +36,7 @@ input#kwd	{
 	width:100%;
 	margin:10px auto; 
 	border-collapse:collapse;
-	border-bottom:2px solid #333;
+	border-bottom:2px solid #808080;
 }
 
 .tbl-ex th, 
@@ -48,7 +48,7 @@ input#kwd	{
 .tbl-ex th	{ 
 	border-top:2px solid #333;
 	border-bottom:2px solid #333; 
-	background-color:#999; 
+	background-color:#c0c0c0; 
 	font-size:1.1em; 
 	color:#fff 
 }

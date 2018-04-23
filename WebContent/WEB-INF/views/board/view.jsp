@@ -36,7 +36,9 @@
 				</table>
 				<div class="bottom">
 					<a href="/mysite/board">글목록</a>
+					<c:if test="${! empty sessionScope.authUser }">
 					<a href="/mysite/board?a=modifyform&no=${boardvo.no}&user_no=${boardvo.user_no}">글수정</a>
+					 </c:if>
 				</div>
 			</div>
 		</div>

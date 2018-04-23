@@ -20,7 +20,7 @@ public class GuestbookDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
-			con = DriverManager.getConnection(url, "webdb", "webdb");
+			con = DriverManager.getConnection(url, "webdb", "1234");
 			String sql = "INSERT INTO GUESTBOOK values (seq_guestbook_no.nextval,?,?,?,sysdate)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, vo.getName());
@@ -58,7 +58,7 @@ public class GuestbookDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
-			con = DriverManager.getConnection(url, "webdb", "webdb");
+			con = DriverManager.getConnection(url, "webdb", "1234");
 			String sql = "SELECT NO, NAME, PASSWORD, CONTENT, REG_DATE" + " FROM GUESTBOOK" + " ORDER BY NO DESC";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -105,7 +105,7 @@ public class GuestbookDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
-			con = DriverManager.getConnection(url, "webdb", "webdb");
+			con = DriverManager.getConnection(url, "webdb", "1234");
 			String sql = "delete from guestbook where no=? and password=?";
 
 			pstmt = con.prepareStatement(sql);

@@ -18,8 +18,7 @@
 
 		<div id="content">
 			<div id="board">
-				<form id="search_form" action="/mysite/board?a=search"
-					method="post">
+				<form id="search_form" action="/mysite/board?a=search" method="post">
 					<input type="text" id="kwd" name="kwd" value=""> <input
 						type="submit" value="찾기">
 				</form>
@@ -39,8 +38,12 @@
 							<td>${boardVO.user_name}</td>
 							<td>${boardVO.hit}</td>
 							<td>${boardVO.reg_date}</td>
-							<td><a href="/mysite/board?a=delete&no=${boardVO.no}"
-								class="del">삭제</a></td>
+							<td>
+						   <c:if test="${sessionScope.authUser.name == boardVO.user_name}">
+							<a href="/mysite/board?a=delete&no=${boardVO.no}"
+								class="del">삭제</a>
+					        </c:if>
+					        </td>
 						</tr>
 					</c:forEach>
 				</table>
@@ -55,12 +58,17 @@
 						<li><a href="">▶</a></li>
 					</ul>
 				</div>
-				<div class="bottom">
-				    <c:if test=" ${authUser != null}" >   
-					    <a href="/mysite/board?a=writeform" id="new-book">글쓰기</a>
+				    <%-- <c:if test="${sessionScope.authUser != null }">
+						<div class="bottom">
+							 <a href="/mysite/board?a=writeform" id="new-book">글쓰기</a> 
+						</div>
+				    </c:if> --%>
+				    
+				    <c:if test="${! empty sessionScope.authUser }">
+				   	 <div class="bottom">
+							 <a href="/mysite/board?a=writeform" id="new-book">글쓰기</a> 
+						</div>
 				    </c:if>
-				
-				</div>
 			</div>
 		</div>
 

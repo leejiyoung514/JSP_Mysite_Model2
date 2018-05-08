@@ -1,24 +1,231 @@
 package com.javaex.util;
 
+import java.util.ArrayList;
+
+import com.javaex.vo.BoardVO;
+
 public class WebPaging {
-	private int totalSize=0; //¸®½ºÆ®(·¹ÄÚµå) ÀüÃ¼ °¹¼ö
-	private int listSize=5; //ÆäÀÌÁö´ç Ç¥½Ã Çà¼ö
-	private int blockSize=5; // ÇÑºí·°´ç Ç¥½Ã ÆäÀÌÁö¼ö
-	
-    private int totalPage=(int)Math.ceil(totalSize*1.0/listSize); //ÀüÁ¦ÆäÀÌÁö
-  	
-	private int totalBlock=(int)Math.ceil(totalPage*1.0/blockSize); //ÀüÃ¼ ºí·°¼ö
-	
-	
-	private int nowPage=1;  //ÇöÀç ÆäÀÌÁö
-	private int nowBlock=1;  //ÇöÀç ºí·°
-	
-	private int startNo=0; //¸®½ºÆ®¸ñ·ÏÀÇ ½ÃÀÛÀ§Ä¡
-	private int endNo=0; //¸®½ºÆ®¸ñ·ÏÀÇ ¸¶Áö¸·À§Ä¡
-		
-	private int startPage=0; //ÇÑ ºí·°¿¡ Ç¥½ÃÇÒ ½ÃÀÛÆäÀÌÁö ¹øÈ£
-	private int endPage=0; //ÇÑ ºí·°¿¡ Ç¥½ÃÇÒ ½ÃÀÛÆäÀÌÁö ¹øÈ£
-	
+	private int totalSize; // ë¦¬ìŠ¤íŠ¸ ì „ì²´ ê°¯ìˆ˜
+	private int listSize=5; // íŽ˜ì´ì§€ë‹¹ í‘œì‹œí–‰ìˆ˜: 5ê°œ
+	private int blockSize=5; // í•œë¸”ëŸ­ë‹¹ í‘œì‹œ íŽ˜ì´ì§€ìˆ˜: 5ê°œ
+	private int totalPage; // ì „ì²´ íŽ˜ì´ì§€ìˆ˜:
+	private int totalBlock;// ì „ì²´ ë¸”ëŸ­ìˆ˜
+
+	private int nowPage = 1; // í˜„ìž¬ íŽ˜ì´ì§€
+	private int nowBlock = 1; // í˜„ìž¬ ë¸”ëŸ­
+
+	private int startNo = 0; // ë¦¬ìŠ¤íŠ¸ ëª©ë¡ì˜ ì‹œìž‘ìœ„ì¹˜
+	private int endNo = 0; // ë¦¬ìŠ¤íŠ¸ ëª©ë¡ì˜ ë§ˆì§€ë§‰ ìœ„ì¹˜
+
+	private int startPage; // í•œë¸”ëŸ­ì— í‘œì‹œí•  ì‹œìž‘ íŽ˜ì´ì§€ë²ˆí˜¸
+	private int endPage; //í•œ ë¸”ëŸ­ì— í‘œì‹œí•  ë§ˆì§€ë§‰ íŽ˜ì´ì§€ë²ˆí˜¸
+
+	public WebPaging() {
+	}
+
+
+
+
+
+	public int getTotalSize() {
+		return totalSize;
+	}
+
+
+
+
+
+	public void setTotalSize(int totalSize) {
+		this.totalSize = totalSize;
+	}
+
+
+
+
+
+	public int getListSize() {
+		return listSize;
+	}
+
+
+
+
+
+	public void setListSize(int listSize) {
+		this.listSize = listSize;
+	}
+
+
+
+
+
+	public int getBlockSize() {
+		return blockSize;
+	}
+
+
+
+
+
+	public void setBlockSize(int blockSize) {
+		this.blockSize = blockSize;
+	}
+
+
+
+
+
+	public int getTotalPage() {
+		return totalPage;
+	}
+
+
+
+
+
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
+	}
+
+
+
+
+
+	public int getTotalBlock() {
+		return totalBlock;
+	}
+
+
+
+
+
+	public void setTotalBlock(int totalBlock) {
+		this.totalBlock = totalBlock;
+	}
+
+
+
+
+
+	public int getNowPage() {
+		return nowPage;
+	}
+
+
+
+
+
+	public void setNowPage(int nowPage) {
+		this.nowPage = nowPage;
+	}
+
+
+
+
+
+	public int getNowBlock() {
+		return nowBlock;
+	}
+
+
+
+
+
+	public void setNowBlock(int nowBlock) {
+		this.nowBlock = nowBlock;
+	}
+
+
+
+
+
+	public int getStartNo() {
+		return startNo;
+	}
+
+
+
+
+
+	public void setStartNo(int startNo) {
+		this.startNo = startNo;
+	}
+
+
+
+
+
+	public int getEndNo() {
+		return endNo;
+	}
+
+
+
+
+
+	public void setEndNo(int endNo) {
+		this.endNo = endNo;
+	}
+
+
+
+
+
+	public int getStartPage() {
+		return startPage;
+	}
+
+
+
+
+
+	public void setStartPage(int startPage) {
+		this.startPage = startPage;
+	}
+
+
+
+
+
+	public int getEndPage() {
+		return endPage;
+	}
+
+
+
+
+
+	public void setEndPage(int endPage) {
+		this.endPage = endPage;
+	}
+
+
+
+
+
+	public void makePage(int listSize, int blockSize) {
+		totalPage = (int) Math.ceil(totalSize * 1.0 / listSize);
+		totalBlock = (int) Math.ceil(totalPage * 1.0 / blockSize);
+        endNo=nowPage*listSize;
+           if(endNo>totalSize) {
+        	   endNo=totalSize;
+           }
+        startNo=endNo-listSize+1;
+        
+        endPage=nowBlock*blockSize;
+           if(endPage>totalPage) {
+        	   endPage=totalPage;
+           }
+        startPage=endPage-blockSize+1;
+	}
+        
+        
+        
+
+
+
+
+
 	
 	
 	

@@ -22,42 +22,45 @@ public class UserController extends HttpServlet {
 	    request.setCharacterEncoding("UTF-8");
 	    String actionName=request.getParameter("a");
 	    
-	    if("joinform".equals(actionName)) {//È¸¿ø°¡ÀÔ Æû
+	    if("joinform".equals(actionName)) {//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	    	WebUtil.forward(request, response, "/WEB-INF/views/user/joinform.jsp");
-	    }else if("join".equals(actionName)) {//È¸¿øÁ¤º¸ ÀúÀå
+	   
+	    }else if("join".equals(actionName)) {//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	    	String name=request.getParameter("name");
 	    	String email=request.getParameter("email");
 	    	String password=request.getParameter("password");
 	    	String gender=request.getParameter("gender");
 	    	
-	    	//°¹¼ö°¡ ¸¹¾Æ¼­ vo·Î ¹­¾î¼­ daoÇÑÅ× ´øÁ®Áà¼­ ÀúÀåÃ³¸®ÇÔ
+	    	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¼ï¿½ voï¿½ï¿½ ï¿½ï¿½ï¿½î¼­ daoï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½à¼­ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½
 	    	UserVO uservo=new UserVO(name, email, password, gender);
-	    	//È­¸é¿¡¼­ µ¥ÀÌÅÍ°¡ Àß ¿À´ÂÁö Å×½ºÆ®ÀÛ¾÷ 
+	    	//È­ï¿½é¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×½ï¿½Æ®ï¿½Û¾ï¿½ 
 	    	System.out.println(uservo.toString());
 	
 	    	UserDAO userdao = new UserDAO();
 	    	userdao.insert(uservo);
-	    	//ÀÀ´äÇÏ´Â ·ÎÁ÷
+	    	//ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
 	    	WebUtil.forward(request, response,"/WEB-INF/views/user/joinsuccess.jsp");
 	    
 	    }else if("loginform".equals(actionName)) {
 	    	WebUtil.forward(request, response,"/WEB-INF/views/user/loginform.jsp");
+	    
 	    }else if("login".equals(actionName)) {
 	    	String email=request.getParameter("email");
 	    	String password=request.getParameter("password");
 	    	UserDAO userdao=new UserDAO();
 	    	UserVO uservo=userdao.getUser(email, password);
 	    	
-	    	if(uservo==null) { //·Î±×ÀÎ½ÇÆÐ
-	    		System.out.println("·Î±×ÀÎ½ÇÆÐ");
+	    	if(uservo==null) { //ï¿½Î±ï¿½ï¿½Î½ï¿½ï¿½ï¿½
+	    		System.out.println("ï¿½Î±ï¿½ï¿½Î½ï¿½ï¿½ï¿½");
 	    		WebUtil.redirect(request, response,"/mysite/user?a=loginform&result=fail");
-	    	}else { //·Î±×ÀÎ ¼º°ø½Ã session¿¡ ´ã¾Æ¼­ 
-	    		System.out.println("·Î±×ÀÎ¼º°ø"); 
-	    		HttpSession session=request.getSession(); //³Ö´Â °÷À» ¾Ë·ÁÁÖ¸é À§ÇèÇÏ´Ï±î ÄÁÆ®·ÑÇÏ´Â ¾Ö¸¦ ¾Ë·ÁÁÜ
+	    	}else { //ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ sessionï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ 
+	    		System.out.println("ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½"); 
+	    		HttpSession session=request.getSession(); //ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë·ï¿½ï¿½Ö¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Ï±ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ö¸ï¿½ ï¿½Ë·ï¿½ï¿½ï¿½
 	    	    session.setAttribute("authUser", uservo);
 	    	    System.out.println("login" + uservo.toString());
-	    	    WebUtil.redirect(request, response, "/mysite/main"); //¸ÞÀÎÆäÀÌÁö°¡ ÀÌ¹Ì ÀÖ±â¶§¹®¿¡ ¸®´ÙÀÌ·ºÆ®
+	    	    WebUtil.redirect(request, response, "/mysite/main"); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½Ö±â¶§ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì·ï¿½Æ®
 	    	 }
+	    	
 	    }else if("logout".equals(actionName)) {
 	    	HttpSession session=request.getSession();
 	    	session.removeAttribute("authUser");

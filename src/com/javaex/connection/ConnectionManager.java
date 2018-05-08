@@ -15,7 +15,7 @@ public class ConnectionManager {
 		String driver="oracle.jdbc.OracleDriver";
 		try {
 			Class.forName(driver);
-			con = DriverManager.getConnection(url, "webdb", "webdb");
+			con = DriverManager.getConnection(url, "webdb", "1234");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

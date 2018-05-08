@@ -11,7 +11,7 @@ import java.util.List;
 import com.javaex.vo.BoardVO;
 
 public class BoardDAO {
-	// ±Û¾²±â
+	// ê¸€ ì‚½ì…í•˜ê¸°
 	public void insert(BoardVO vo) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -26,10 +26,10 @@ public class BoardDAO {
 			pstmt.setString(2, vo.getContent());
 			pstmt.setInt(3, vo.getUser_no());
 			count = pstmt.executeUpdate();
-			System.out.println(count + "°Ç µî·Ï");
+			System.out.println(count + "ê±´ ë“±ë¡");
 
 		} catch (ClassNotFoundException e) {
-			System.out.println("error: list µå¶óÀÌ¹ö ·Îµù ½ÇÆĞ - " + e);
+			System.out.println("error: ë“œë¼ì´ë²„ ë¡œë”© ì‹¤íŒ¨ - " + e);
 		} catch (SQLException e) {
 			System.out.println("error:" + e);
 		} finally {
@@ -45,10 +45,9 @@ public class BoardDAO {
 				e.printStackTrace();
 			}
 		}
-
 	}
 
-	// ±Û¸ñ·Ï
+	// ê¸€ ë‚´ìš© ê°€ì ¸ì˜¤ê¸°
 	public List<BoardVO> getlist() {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -77,7 +76,7 @@ public class BoardDAO {
 			}
 
 		} catch (ClassNotFoundException e) {
-			System.out.println("error: list µå¶óÀÌ¹ö ·Îµù ½ÇÆĞ - " + e);
+			System.out.println("error: ë“œë¼ì´ë²„ ë¡œë”© ì‹¤íŒ¨ - " + e);
 		} catch (SQLException e) {
 			System.out.println("error:" + e);
 		} finally {
@@ -100,7 +99,7 @@ public class BoardDAO {
 		return list;
 	}
 
-	// ±Û ¼öÁ¤ ¾÷µ¥ÀÌÆ®
+	// ê¸€ ìˆ˜ì •í•˜ê¸°
 	public void Update(BoardVO boardvo) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -117,11 +116,11 @@ public class BoardDAO {
 			pstmt.setString(2, boardvo.getContent());
 			pstmt.setInt(3, boardvo.getNo());
 			count = pstmt.executeUpdate();
-			// °á°úÃ³¸®
-			System.out.println(count + "°Ç µî·Ï");
+			// ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
+			System.out.println(count + "ê±´ ë“±ë¡");
 
 		} catch (ClassNotFoundException e) {
-			System.out.println("error: insert µå¶óÀÌ¹ö ·Îµù ½ÇÆĞ - " + e);
+			System.out.println("error: ë“œë¼ì´ë²„ ë¡œë”© ì‹¤íŒ¨ - " + e);
 		} catch (SQLException e) {
 			System.out.println("error:" + e);
 			e.printStackTrace();
@@ -140,7 +139,7 @@ public class BoardDAO {
 		}
 	}
 
-	// ±Û³»¿ë °¡Á®¿À±â
+	// ê¸€ ëª©ë¡ ê°€ì ¸ì˜¤ê¸°
 	public BoardVO getArticles(int no) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -154,7 +153,7 @@ public class BoardDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, no);
 			rs = pstmt.executeQuery();
-			// °á°ú Ã³¸®
+			// ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 			while (rs.next()) {
 				int wno = rs.getInt("no");
 				String title = rs.getString("title");
@@ -168,7 +167,7 @@ public class BoardDAO {
 			}
 
 		} catch (ClassNotFoundException e) {
-			System.out.println("error: insert µå¶óÀÌ¹ö ·Îµù ½ÇÆĞ - " + e);
+			System.out.println("error: ë“œë¼ì´ë²„ ë¡œë”© ì‹¤íŒ¨ - " + e);
 		} catch (SQLException e) {
 			System.out.println("error:" + e);
 			e.printStackTrace();
@@ -191,7 +190,7 @@ public class BoardDAO {
 		return boardvo;
 	}
 
-	// ±Û»èÁ¦
+	// ê¸€ ì‚­ì œê¸°ëŠ¥
 	public int delete(int no) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -209,7 +208,7 @@ public class BoardDAO {
 			count = pstmt.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
-			System.out.println("error: list µå¶óÀÌ¹ö ·Îµù ½ÇÆĞ - " + e);
+			System.out.println("error: ë“œë¼ì´ë²„ ë¡œë”© ì‹¤íŒ¨ - " + e);
 		} catch (SQLException e) {
 			System.out.println("error:" + e);
 		} finally {
@@ -231,7 +230,7 @@ public class BoardDAO {
 		return count;
 	}
 
-	// ±Û°Ë»ö
+	// ê²€ìƒ‰ê¸°ëŠ¥ 
 	public ArrayList<BoardVO> search(String kwd) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -267,7 +266,7 @@ public class BoardDAO {
 			}
 
 		} catch (ClassNotFoundException e) {
-			System.out.println("error: insert µå¶óÀÌ¹ö ·Îµù ½ÇÆĞ - " + e);
+			System.out.println("error: ë“œë¼ì´ë²„ ë¡œë”© ì‹¤íŒ¨ - " + e);
 		} catch (SQLException e) {
 			System.out.println("error:" + e);
 		} finally {
@@ -289,7 +288,7 @@ public class BoardDAO {
 		return list;
 	}
 	
-	// Á¶È¸¼ö Áõ°¡ 
+	// ì¡°íšŒìˆ˜ ì¦ê°€ ê¸°ëŠ¥
 	public void increaseHit(int no) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -302,10 +301,10 @@ public class BoardDAO {
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, no);
 			count = pstmt.executeUpdate();
-			// °á°úÃ³¸®
-			System.out.println("Á¶È¸¼ö"+count + "È¸ Áõ°¡");
+			// ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
+			System.out.println("ì¡°íšŒìˆ˜"+count + "íšŒ ì¶”ê°€");
 		} catch (ClassNotFoundException e) {
-			System.out.println("error: insert µå¶óÀÌ¹ö ·Îµù ½ÇÆĞ - " + e);
+			System.out.println("error: ë“œë¼ì´ë²„ ë¡œë”© ì‹¤íŒ¨ - " + e);
 		} catch (SQLException e) {
 			System.out.println("error:" + e);
 			e.printStackTrace();
@@ -324,7 +323,7 @@ public class BoardDAO {
 		}
 	}
 	
-	//ÆäÀÌÁö °³¼ö¸¦ ±¸ÇÏ±â À§ÇÑ ÀüÃ¼ °Ô½Ã±Û °³¼ö 
+	// ì „ì²´ ê¸€ ìˆ˜ ê°€ì ¸ì˜¤ê¸°
 	public int getArticleCount() {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -337,12 +336,12 @@ public class BoardDAO {
 			String sql = "SELECT count(*) FROM board";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			// °á°ú Ã³¸®
+			// ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 			while (rs.next()) {
 			  count=rs.getInt(1);
 			}
 		} catch (ClassNotFoundException e) {
-			System.out.println("error: insert µå¶óÀÌ¹ö ·Îµù ½ÇÆĞ - " + e);
+			System.out.println("error: ë“œë¼ì´ë²„ ë¡œë”© ì‹¤íŒ¨ - " + e);
 		} catch (SQLException e) {
 			System.out.println("error:" + e);
 			e.printStackTrace();
@@ -365,7 +364,7 @@ public class BoardDAO {
 		return count;
 	}
 	
-	//ÆäÀÌÂ¡ ÇÑ ±Û¸ñ·Ï ¸®½ºÆ®
+	//ë¦¬ìŠ¤íŠ¸ ëª©ë¡ ê°€ì ¸ì˜¤ê¸°(í˜ì´ì§•ì¶”ê°€) start(ì‹œì‘ ê¸€ë²ˆí˜¸)ë¶€í„° end(ì¶”ì¶œí•  ë ˆì½”ë“œ ìˆ˜)
 	public ArrayList<BoardVO> listBoard(int start, int end){
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -407,7 +406,7 @@ public class BoardDAO {
 			}
 
 		} catch (ClassNotFoundException e) {
-			System.out.println("error: list µå¶óÀÌ¹ö ·Îµù ½ÇÆĞ - " + e);
+			System.out.println("error: ë“œë¼ì´ë²„ ë¡œë”© ì‹¤íŒ¨ - " + e);
 		} catch (SQLException e) {
 			System.out.println("error:" + e);
 		} finally {
@@ -430,7 +429,6 @@ public class BoardDAO {
 		
 		return list;
 	}
-	
 	
 
 }

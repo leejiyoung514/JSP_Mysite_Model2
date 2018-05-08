@@ -47,6 +47,38 @@
 						</tr>
 					</c:forEach>
 				</table>
+				
+				
+				<div class="pager">
+				
+					<ul>
+					  <c:if test="${page.prev}">
+						<li><a style="text-decoration:none;" href="${page.getStartPage()-1 }">◀</a></li>					  
+					  </c:if>
+					  <c:forEach begin="${page.getStartPage()}" end="${page.getStartPage()}" var="idx">
+					    <li><a href="">1</a>${idx}</li>
+					  </c:forEach>
+					  
+					  <c:if test="${page.prev}">
+						<li><a style="text-decoration:none;" href="${page.getStartPage()-1 }">◀</a></li>					  
+					  </c:if>
+					  
+						<li><a href="">1</a></li>
+						<li><a href="">2</a></li>
+						<li class="selected">3</li>
+						<li><a href="">4</a></li>
+						<li>5</li>
+						<li><a href="">▶</a></li>
+					</ul>
+				</div>
+				
+				
+				
+				
+				
+				
+				
+				
 				<div class="pager">
 					<ul>
 						<li><a href="">◀</a></li>
@@ -58,12 +90,9 @@
 						<li><a href="">▶</a></li>
 					</ul>
 				</div>
-				    <%-- <c:if test="${sessionScope.authUser != null }">
-						<div class="bottom">
-							 <a href="/mysite/board?a=writeform" id="new-book">글쓰기</a> 
-						</div>
-				    </c:if> --%>
-				    
+				
+				
+			
 				    <c:if test="${! empty sessionScope.authUser }">
 				   	 <div class="bottom">
 							 <a href="/mysite/board?a=writeform" id="new-book">글쓰기</a> 
